@@ -23,17 +23,15 @@ function openDetails(productName, imageUrl) {
     document.getElementById('detail-product-name').innerText = productName;
     document.getElementById('detail-product-img').src = imageUrl;
 
-    // Remove active class from all buttons
+    // Remove active class from all option buttons
     document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
 
     switchView('detail-view');
-    window.scrollTo(0, 0);
 }
 
 // Go back to Home
 function goBack() {
     switchView('home-view');
-    window.scrollTo(0, 0);
 }
 
 // Select Bag Size or Bag Type
@@ -67,7 +65,6 @@ function handleNext() {
     document.getElementById('hidden-type').value = selectedType;
 
     switchView('booking-view');
-    window.scrollTo(0, 0);
 }
 
 // Go back from Booking to Details
@@ -75,15 +72,16 @@ function goBackToDetails() {
     switchView('detail-view');
 }
 
-// Helper to switch active views
+// Helper to switch active views and auto scroll to top
 function switchView(viewId) {
     document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
     document.getElementById(viewId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ==========================================
-// COUNTRY MODAL LOGIC
-// ==========================================
+// ======================================================
+// COUNTRY PICKER MODAL LOGIC (COMPATIBLE & LIGHTWEIGHT)
+// ======================================================
 
 function openCountryModal(event) {
     if(event) {
@@ -93,7 +91,7 @@ function openCountryModal(event) {
     
     document.getElementById('modal-overlay').classList.add('active');
     document.getElementById('country-modal').classList.add('active');
-    document.getElementById('country-search').value = ''; // Reset search
+    document.getElementById('country-search').value = ''; // Reset search input
     
     buildCountryList();
 }
@@ -112,7 +110,7 @@ function buildCountryList(filterText = '') {
     );
 
     if (filtered.length === 0) {
-        listContainer.innerHTML = '<div class="country-item" style="color: #999;">No country found</div>';
+        listContainer.innerHTML = '<div class="country-item" style="color: #999; text-align: center; padding: 20px;">No country found</div>';
         return;
     }
 
