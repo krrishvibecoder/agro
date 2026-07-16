@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Viewport optimized to prevent scaling issues -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>RL Infinity Export</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,84 +13,101 @@
 
     <div class="main-container">
         
+        <!-- ================= HOME VIEW ================= -->
         <div id="home-view" class="view active">
             <header class="header">
-                <div class="logo-placeholder">
-                    <img src="https://i.ibb.co/zhPC69PT/36306e97-6765-4619-8e31-7667bc0f5fda.jpg" alt="RL Infinity Logo">
+                <div class="header-content">
+                    <div class="logo-placeholder">
+                        <img src="https://i.ibb.co/zhPC69PT/36306e97-6765-4619-8e31-7667bc0f5fda.jpg" alt="RL Infinity Logo">
+                    </div>
+                    <div class="hero-text">
+                        <h1 class="hero-title">RL Infinity Export</h1>
+                        <p class="hero-desc">
+                            We are a trusted name in the global agri-export market. We source premium quality Rice, Onion, & Coconut from India's finest regions and deliver them to buyers worldwide.
+                        </p>
+                    </div>
                 </div>
-                <h1 class="hero-title">RL Infinity Export</h1>
-                <p class="hero-desc">
-                    We are trusted name in the global agri-export market. We source premium quality Rice, Onion, & Coconut from India's finest regions and deliver them to buyers worldwide.
-                </p>
             </header>
 
-            <section class="form-section">
-                <h2 class="section-title">Get In Touch</h2>
+            <!-- Main Split Grid for Desktop -->
+            <div class="home-desktop-grid">
                 
-                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
-                    <input type="text" name="subject" class="form-control subject-input" placeholder="Subject" required>
-                    <textarea name="requirement" class="form-control" placeholder="Your requirement..." required></textarea>
-                    
-                    <button type="submit" class="submit-btn">Submit Requirement</button>
-                </form>
-            </section>
-
-            <section class="products-section">
-                <h2 class="section-title">Our Products</h2>
-                
-                <div class="product-list">
-                    <div class="product-card" onclick="openDetails('Onion', 'https://i.ibb.co/xKjWKqGy/IMG-0674.jpg')">
-                        <div class="product-image-container">
-                            <img src="https://i.ibb.co/xKjWKqGy/IMG-0674.jpg" alt="Fresh Onions" class="product-image">
+                <!-- Left Pane: Our Products -->
+                <section class="products-section">
+                    <h2 class="section-title">Our Products</h2>
+                    <div class="product-list">
+                        
+                        <div class="product-card" onclick="openDetails('Onion', 'https://i.ibb.co/xKjWKqGy/IMG-0674.jpg')">
+                            <div class="product-image-container">
+                                <img src="https://i.ibb.co/xKjWKqGy/IMG-0674.jpg" alt="Fresh Onions" class="product-image">
+                            </div>
+                            <div class="product-info">
+                                <button class="product-name-btn">Onion</button>
+                                <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                            </div>
                         </div>
-                        <div class="product-info">
-                            <button class="product-name-btn">Onion</button>
-                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+
+                        <div class="product-card" onclick="openDetails('Rice', 'https://i.ibb.co/LhYSKvxf/IMG-0676.jpg')">
+                            <div class="product-image-container">
+                                <img src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Premium Rice" class="product-image">
+                            </div>
+                            <div class="product-info">
+                                <button class="product-name-btn">Rice</button>
+                                <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                            </div>
                         </div>
+
+                        <div class="product-card" onclick="openDetails('Coconut', 'https://i.ibb.co/Jw9LSNHW/IMG-0677.jpg')">
+                            <div class="product-image-container">
+                                <img src="https://i.ibb.co/Jw9LSNHW/IMG-0677.jpg" alt="Coconuts" class="product-image">
+                            </div>
+                            <div class="product-info">
+                                <button class="product-name-btn">Coconut</button>
+                                <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                            </div>
+                        </div>
+
                     </div>
+                </section>
 
-                    <div class="product-card" onclick="openDetails('Rice', 'https://i.ibb.co/LhYSKvxf/IMG-0676.jpg')">
-                        <div class="product-image-container">
-                            <img src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Premium Rice" class="product-image">
-                        </div>
-                        <div class="product-info">
-                            <button class="product-name-btn">Rice</button>
-                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
-                        </div>
-                    </div>
+                <!-- Right Pane: Get in Touch Form -->
+                <section class="form-section">
+                    <div class="form-card">
+                        <h2 class="section-title">Get In Touch</h2>
+                        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                    <div class="product-card" onclick="openDetails('Coconut', 'https://i.ibb.co/Jw9LSNHW/IMG-0677.jpg')">
-                        <div class="product-image-container">
-                            <img src="https://i.ibb.co/Jw9LSNHW/IMG-0677.jpg" alt="Coconuts" class="product-image">
-                        </div>
-                        <div class="product-info">
-                            <button class="product-name-btn">Coconut</button>
-                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
-                        </div>
+                            <div class="form-row">
+                                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            <textarea name="requirement" class="form-control" placeholder="Your requirement..." required></textarea>
+                            
+                            <button type="submit" class="submit-btn">Submit Inquiry</button>
+                        </form>
                     </div>
-                </div>
-            </section>
+                </section>
+
+            </div>
         </div>
 
+        <!-- ================= DETAIL VIEW ================= -->
         <div id="detail-view" class="view">
-            <div class="detail-desktop-top">
+            <div class="detail-navigation">
                 <button class="back-btn" onclick="goBack()">
-                    <i class="fa-solid fa-arrow-left"></i> 
-                    <span class="back-text">Back to Home</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="back-btn-text">Back to Home</span>
                 </button>
             </div>
-            
-            <div class="detail-wrapper">
-                <div class="detail-header">
+
+            <div class="detail-layout-grid">
+                <div class="detail-media-pane">
                     <img id="detail-product-img" src="" alt="Selected Product" class="detail-hero-image">
                 </div>
 
-                <div class="detail-content-wrap">
+                <div class="detail-info-pane">
                     <div class="detail-content">
                         <h2 id="detail-product-name" class="detail-product-title">Product Name</h2>
                         <hr class="divider">
@@ -119,22 +137,25 @@
                     </div>
 
                     <div class="action-container">
-                        <button class="next-btn" onclick="handleNext()">Proceed to Booking</button>
+                        <button class="next-btn" onclick="handleNext()">Next Step <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- ================= BOOKING DETAILS VIEW ================= -->
         <div id="booking-view" class="view">
             <div class="booking-navbar">
-                <button class="nav-close-btn" onclick="goBackToDetails()"><i class="fa-solid fa-arrow-left"></i></button>
-                <span class="nav-title">booking-details</span>
+                <button class="nav-close-btn" onclick="goBackToDetails()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <span class="nav-title">Booking Details</span>
                 <i class="fa-solid fa-ellipsis nav-more-icon"></i>
             </div>
 
             <div class="booking-content-container">
-                <div class="booking-grid">
-                    <div class="summary-wrap">
+                <div class="booking-layout-grid">
+                    
+                    <!-- Left Column: Order Summary -->
+                    <div class="booking-summary-pane">
                         <div class="summary-card">
                             <h4 class="summary-title">YOUR ORDER SUMMARY</h4>
                             <div class="summary-item"><strong>Product: </strong><span id="summary-product"></span></div>
@@ -143,7 +164,8 @@
                         </div>
                     </div>
 
-                    <div class="booking-form-wrap">
+                    <!-- Right Column: Form -->
+                    <div class="booking-form-pane">
                         <h3 class="contact-header">Contact Information</h3>
                         
                         <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="booking-form">
@@ -172,20 +194,21 @@
                                 <label class="form-label">Which country are you located in?</label>
                                 <div class="country-select-wrapper">
                                     <input type="text" id="country-input" name="country" class="booking-input" placeholder="Select or type country..." required>
-                                    
                                     <div class="dropdown-trigger" onclick="openCountryModal(event)">
                                         <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="submit" class="submit-booking-btn">Confirm & Submit</button>
+                            <button type="submit" class="submit-booking-btn">Submit Booking Request</button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>
 
+        <!-- ================= COUNTRY MODAL ================= -->
         <div class="modal-overlay" id="modal-overlay" onclick="closeCountryModal()"></div>
         <div class="country-modal" id="country-modal">
             <div class="country-modal-header">
@@ -193,7 +216,7 @@
                 <button class="country-modal-close" onclick="closeCountryModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="country-search-box">
-                <input type="text" id="country-search" class="country-search-input" placeholder="Search / Type country name..." oninput="filterCountries()">
+                <input type="text" id="country-search" class="country-search-input" placeholder="Search or type country name..." oninput="filterCountries()">
             </div>
             <div class="country-list" id="country-list">
             </div>
@@ -201,6 +224,7 @@
 
     </div>
 
+    <!-- JS Link -->
     <script src="script.js"></script>
 </body>
 </html>
