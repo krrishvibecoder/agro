@@ -27,11 +27,13 @@ function openDetails(productName, imageUrl) {
     document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
 
     switchView('detail-view');
+    window.scrollTo(0, 0);
 }
 
 // Go back to Home
 function goBack() {
     switchView('home-view');
+    window.scrollTo(0, 0);
 }
 
 // Select Bag Size or Bag Type
@@ -65,6 +67,7 @@ function handleNext() {
     document.getElementById('hidden-type').value = selectedType;
 
     switchView('booking-view');
+    window.scrollTo(0, 0);
 }
 
 // Go back from Booking to Details
@@ -79,11 +82,10 @@ function switchView(viewId) {
 }
 
 // ==========================================
-// COUNTRY MODAL LOGIC (KEYBOARD ISSUE FIXED)
+// COUNTRY MODAL LOGIC
 // ==========================================
 
 function openCountryModal(event) {
-    // Prevent the click from activating the input box behind/beside the arrow
     if(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -94,8 +96,6 @@ function openCountryModal(event) {
     document.getElementById('country-search').value = ''; // Reset search
     
     buildCountryList();
-    
-    // .focus() hata diya hai taaki pop-up aate hi keyboard open na ho!
 }
 
 function closeCountryModal() {
