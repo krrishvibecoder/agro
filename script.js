@@ -245,15 +245,29 @@ function filterCountries() {
 
 function selectCountry(countryName) {
     document.getElementById('country-input').value = countryName;
+    applyDialCodeForCountry(countryName);
+    closeCountryModal();
+}
 
-    // Auto-match phone country code - user can still change it manually
-    const match = countryDialCodes.find(entry => entry.name === countryName);
+// Auto-match dial code helper — shared by modal selection and manual typing
+function applyDialCodeForCountry(countryName) {
+    const match = countryDialCodes.find(entry => entry.name.toLowerCase() === countryName.trim().toLowerCase());
     const phoneCodeSelect = document.getElementById('phone-code');
     if (match && phoneCodeSelect) {
         phoneCodeSelect.value = match.code;
     }
+}
 
-    closeCountryModal();
+// Also auto-match when the user manually types the country name instead of picking from the modal
+function attachManualCountryTypingMatch() {
+    const input = document.getElementById('country-input');
+    if (!input) return;
+    input.addEventListener('input', function() {
+        applyDialCodeForCountry(input.value);
+    });
+    input.addEventListener('blur', function() {
+        applyDialCodeForCountry(input.value);
+    });
 }
 
 // ==========================================
@@ -348,6 +362,12 @@ function resetBookingSuccess() {
 
     switchView('home-view');
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    attachGlowSubmit('contact-form', '.submit-btn');
+    attachBookingSubmit();
+    attachManualCountryTypingMatch();
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     attachGlowSubmit('contact-form', '.submit-btn');
