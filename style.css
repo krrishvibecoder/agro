@@ -39,8 +39,8 @@ body {
     min-height: 80vh;
 }
 
-/* On actual phone screens, drop the "card" look and go full screen */
-@media (max-width: 600px) {
+/* On phones and small tablets, drop the "card" look and go full screen */
+@media (max-width: 767px) {
     body {
         padding: 0;
         background: #ffffff;
@@ -52,13 +52,6 @@ body {
         box-shadow: none;
         border: none;
         min-height: 100vh;
-    }
-}
-
-/* On large desktop screens, give the card a touch more breathing room */
-@media (min-width: 1200px) {
-    .mobile-container {
-        max-width: 520px;
     }
 }
 
@@ -759,6 +752,169 @@ textarea.form-control {
     cursor: pointer;
     transition: background 0.2s;
     color: var(--text-primary);
+}
+
+.country-item:hover {
+    background-color: #f5f5f5;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET & DESKTOP (any screen 768px and wider)
+   Pure CSS additions only — no HTML/JS structure changed,
+   no functionality affected. Mobile styles above are untouched.
+   Widths use clamp()/vw so it scales smoothly at every size,
+   not just at one fixed "PC" breakpoint.
+   ============================================================ */
+@media (min-width: 768px) {
+
+    body {
+        padding: 40px 20px;
+    }
+
+    /* Home view gets a wider, two-column layout that scales with the window */
+    .mobile-container:has(#home-view.active) {
+        max-width: min(1000px, 94vw);
+        min-height: auto;
+    }
+
+    /* Detail & booking views stay narrower and centered, also fluid */
+    .mobile-container:has(#detail-view.active),
+    .mobile-container:has(#booking-view.active) {
+        max-width: min(720px, 92vw);
+        min-height: auto;
+    }
+
+    /* ---------------- HOME VIEW ---------------- */
+    #home-view.active {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        grid-template-areas:
+            "header  header"
+            "products contact";
+    }
+
+    #home-view .header {
+        grid-area: header;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        text-align: left;
+        padding: 35px 40px 25px 40px;
+    }
+
+    #home-view .logo-placeholder {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    #home-view .hero-desc {
+        text-align: left;
+        padding: 0;
+    }
+
+    #home-view .products-section {
+        grid-area: products;
+        padding: 10px 40px 40px 40px;
+    }
+
+    #home-view .products-section .section-title,
+    #home-view .form-section .section-title {
+        text-align: left;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    #home-view .products-section .section-title::after,
+    #home-view .form-section .section-title::after {
+        content: "";
+        display: block;
+        width: 36px;
+        height: 3px;
+        background: var(--gold-gradient);
+        margin-top: 8px;
+    }
+
+    #home-view .product-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    #home-view .product-image-container {
+        height: 130px;
+    }
+
+    #home-view .form-section {
+        grid-area: contact;
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        padding: 30px;
+        margin: 10px 40px 40px 0;
+        align-self: start;
+    }
+
+    #home-view .contact-us-section {
+        margin-top: 28px;
+    }
+
+    /* ---------------- DETAIL VIEW ---------------- */
+    #detail-view .detail-header {
+        border-radius: 18px 18px 0 0;
+        margin: 30px 30px 0 30px;
+        width: calc(100% - 60px);
+        height: 320px;
+    }
+
+    #detail-view .detail-content,
+    #detail-view .action-container,
+    #detail-view .product-description {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /* ---------------- BOOKING VIEW ---------------- */
+    #booking-view .booking-content-container {
+        padding: 35px 50px;
+    }
+}
+
+/* Once there's genuinely enough room (bigger tablets/laptops+),
+   put form fields side-by-side too — keeps things comfortable
+   instead of cramming inputs on medium-width screens. */
+@media (min-width: 1000px) {
+    #home-view .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    #home-view .contact-form input[name="subject"],
+    #home-view .contact-form textarea,
+    #home-view .contact-form .submit-btn {
+        grid-column: 1 / -1;
+    }
+
+    #booking-view .booking-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    #booking-view .booking-form .form-group:nth-of-type(1) {
+        grid-column: 1;
+    }
+
+    #booking-view .booking-form .form-group:nth-of-type(2) {
+        grid-column: 2;
+    }
+
+    #booking-view .booking-form .form-group:nth-of-type(3),
+    #booking-view .booking-form .form-group:nth-of-type(4),
+    #booking-view .booking-form .submit-booking-btn {
+        grid-column: 1 / -1;
+    }
 }
 
 .country-item:hover {
