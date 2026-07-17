@@ -368,8 +368,3 @@ document.addEventListener('DOMContentLoaded', function() {
     attachBookingSubmit();
     attachManualCountryTypingMatch();
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-    attachGlowSubmit('contact-form', '.submit-btn');
-    attachBookingSubmit();
-});
