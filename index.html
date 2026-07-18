@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>RL Infinity Export</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <!-- ================= HOME VIEW ================= -->
+        <div id="home-view" class="view active">
+
+            <!-- HEADER (used by both mobile & PC) -->
+            <header class="header">
+                <div class="logo-placeholder">
+                    <img src="https://i.ibb.co/5XRb45hj/e58d2945-d553-4590-b44e-c29bb1f6b10f.jpg" alt="RL Infinity Logo">
+                </div>
+                <!-- PC: title + desc wrapped for grid placement -->
+                <div class="pc-title-block">
+                    <h1 class="hero-title">RL Infinity Export</h1>
+                    <p class="hero-desc">
+                        We are trusted name in the global agri-export market. We source premium quality Rice, Onion, &amp; Coconut from India's finest regions and deliver them to buyers worldwide.
+                    </p>
+                </div>
+                <!-- PC: hero rice image right side — hidden on mobile via CSS -->
+                <img class="pc-hero-img" src="https://i.ibb.co/Y4KxBcjL/IMG-0854.jpg" alt="Rice Export" style="display:none;">
+            </header>
+
+            <!-- PC TRUST BAR — hidden on mobile -->
+            <div class="pc-trust-bar" style="display:none;">
+                <span><i class="fa-solid fa-shield-halved"></i> Trusted Exporter</span>
+                <span><i class="fa-solid fa-earth-asia"></i> Worldwide Delivery</span>
+                <span><i class="fa-solid fa-certificate"></i> Quality Assured</span>
+            </div>
+
+            <!-- PC MAIN BODY — 2-col grid, hidden on mobile -->
+            <div class="pc-main-body" style="display:none;">
+
+                <!-- LEFT: Products -->
+                <div class="pc-left-col">
+                    <div class="pc-section-header">
+                        <div class="pc-section-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <span class="pc-section-title">Our Products</span>
+                    </div>
+
+                    <div class="pc-product-grid">
+                        <div class="pc-product-card" onclick="openDetails('Onion', 'https://i.ibb.co/xKjWKqGy/IMG-0674.jpg')">
+                            <img src="https://i.ibb.co/xKjWKqGy/IMG-0674.jpg" alt="Onion" class="pc-product-img">
+                            <div class="pc-product-footer">
+                                <div class="pc-product-name-area">
+                                    <div class="pc-product-icon"><i class="fa-solid fa-circle-dot"></i></div>
+                                    <span class="pc-product-label">Onion</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long pc-product-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="pc-product-card" onclick="openDetails('Rice', 'https://i.ibb.co/LhYSKvxf/IMG-0676.jpg')">
+                            <img src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Rice" class="pc-product-img">
+                            <div class="pc-product-footer">
+                                <div class="pc-product-name-area">
+                                    <div class="pc-product-icon"><i class="fa-solid fa-seedling"></i></div>
+                                    <span class="pc-product-label">Rice</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long pc-product-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="pc-product-card" onclick="openDetails('Coconut', 'https://i.ibb.co/FbfSYcMm/a1255e38-58e8-4c4b-a71f-cbbdfe64ee1e.jpg')">
+                            <img src="https://i.ibb.co/YTbvtR7z/a1255e38-58e8-4c4b-a71f-cbbdfe64ee1e.jpg" alt="Coconut" class="pc-product-img">
+                            <div class="pc-product-footer">
+                                <div class="pc-product-name-area">
+                                    <div class="pc-product-icon"><i class="fa-solid fa-leaf"></i></div>
+                                    <span class="pc-product-label">Coconut</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long pc-product-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tagline bar -->
+                    <div class="pc-tagline-bar">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Premium Quality <span class="tagline-dots">•</span> Ethical Sourcing <span class="tagline-dots">•</span> Global Delivery</span>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Form + Social -->
+                <div class="pc-right-col">
+                    <div class="pc-section-header">
+                        <div class="pc-section-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <span class="pc-section-title">Get In Touch</span>
+                    </div>
+
+                    <div class="pc-form-card">
+                        <form id="contact-form-pc" action="https://api.web3forms.com/submit" method="POST" class="pc-form-grid">
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <input type="checkbox" name="botcheck" style="display:none;">
+
+                            <input type="text" name="name" class="form-control" placeholder="Name" required>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            <input type="text" name="subject" class="form-control pc-field-full" placeholder="Subject" required>
+                            <textarea name="requirement" class="form-control pc-field-full" placeholder="Your requirement..." required></textarea>
+                            <button type="submit" class="pc-submit-btn">
+                                <i class="fa-solid fa-paper-plane"></i> SUBMIT
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="pc-social-card">
+                        <div class="pc-social-label">Contact Us</div>
+                        <div class="pc-social-row">
+                            <a href="https://x.com/rlinfinityexp?s=11" target="_blank" rel="noopener noreferrer" class="pc-social-icon" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.facebook.com/p/RL-Infinity-61591901036502" target="_blank" rel="noopener noreferrer" class="pc-social-icon" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/rl.infiity.exports?igsh=MXdiZHF0cmt6emdrYg==" target="_blank" rel="noopener noreferrer" class="pc-social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/919096376365" target="_blank" rel="noopener noreferrer" class="pc-social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://in.linkedin.com/in/rl-infinity-export-undefined-6525b2422" target="_blank" rel="noopener noreferrer" class="pc-social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PC FOOTER BAR -->
+            <div class="pc-footer-bar" style="display:none;">
+                <span><i class="fa-solid fa-shield-halved"></i> Trusted Exporter</span>
+                <span class="footer-sep">|</span>
+                <span><i class="fa-solid fa-earth-asia"></i> Worldwide Delivery</span>
+                <span class="footer-sep">|</span>
+                <span><i class="fa-solid fa-award"></i> Quality Assured</span>
+            </div>
+
+            <!-- MOBILE-ONLY SECTIONS (hidden on PC via CSS) -->
+            <section class="products-section">
+                <h2 class="section-title">Our Products</h2>
+                <div class="product-list">
+                    <div class="product-card" onclick="openDetails('Onion', 'https://i.ibb.co/xKjWKqGy/IMG-0674.jpg')">
+                        <div class="product-image-container">
+                            <img src="https://i.ibb.co/xKjWKqGy/IMG-0674.jpg" alt="Fresh Onions" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <button class="product-name-btn">Onion</button>
+                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                        </div>
+                    </div>
+                    <div class="product-card" onclick="openDetails('Rice', 'https://i.ibb.co/LhYSKvxf/IMG-0676.jpg')">
+                        <div class="product-image-container">
+                            <img src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Premium Rice" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <button class="product-name-btn">Rice</button>
+                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                        </div>
+                    </div>
+                    <div class="product-card" onclick="openDetails('Coconut', 'https://i.ibb.co/Jw9LSNHW/IMG-0677.jpg')">
+                        <div class="product-image-container">
+                            <img src="https://i.ibb.co/Jw9LSNHW/IMG-0677.jpg" alt="Coconuts" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <button class="product-name-btn">Coconut</button>
+                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Get In Touch</h2>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                    <textarea name="requirement" class="form-control" placeholder="Your requirement..." required></textarea>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+                <div class="contact-us-section" style="position: relative; z-index: 9999; pointer-events: auto;">
+                    <h4>Contact Us</h4>
+                    <div class="social-icons">
+                        <a href="https://x.com/rlinfinityexp?s=11" target="_blank" rel="noopener noreferrer" title="Twitter" class="social-link" style="position: relative; z-index: 10000;"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.facebook.com/p/RL-Infinity-61591901036502" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-link" style="position: relative; z-index: 10000;"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/rl.infiity.exports?igsh=MXdiZHF0cmt6emdrYg==" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-link" style="position: relative; z-index: 10000;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/919096376365" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="social-link" style="position: relative; z-index: 10000;"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://in.linkedin.com/in/rl-infinity-export-undefined-6525b2422" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link" style="position: relative; z-index: 10000;"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= DETAIL VIEW ================= -->
+        <div id="detail-view" class="view">
+
+            <!-- PC-ONLY: same site header as home page (hidden on mobile) -->
+            <div class="detail-top-header">
+                <header class="header">
+                    <div class="logo-placeholder">
+                        <img src="https://i.ibb.co/5XRb45hj/e58d2945-d553-4590-b44e-c29bb1f6b10f.jpg" alt="RL Infinity Logo">
+                    </div>
+                    <div class="pc-title-block">
+                        <h1 class="hero-title">RL Infinity Export</h1>
+                        <p class="hero-desc">
+                            We are trusted name in the global agri-export market. We source premium quality Rice, Onion, &amp; Coconut from India's finest regions and deliver them to buyers worldwide.
+                        </p>
+                    </div>
+                    <img class="pc-hero-img" src="https://i.ibb.co/Y4KxBcjL/IMG-0854.jpg" alt="Rice Export">
+                </header>
+                <div class="pc-trust-bar">
+                    <span><i class="fa-solid fa-shield-halved"></i> Trusted Exporter</span>
+                    <span><i class="fa-solid fa-earth-asia"></i> Worldwide Delivery</span>
+                    <span><i class="fa-solid fa-certificate"></i> Quality Assured</span>
+                </div>
+            </div>
+
+            <div class="detail-body">
+                <div class="detail-header">
+                    <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+                    <img id="detail-product-img" src="" alt="Selected Product" class="detail-hero-image">
+                </div>
+
+                <div class="detail-content">
+                    <h2 id="detail-product-name" class="detail-product-title">Product Name</h2>
+                    <hr class="divider">
+                    <p class="meta-info">Minimum Order Quantity : <span>26 MT</span></p>
+
+                    <div class="selection-group">
+                        <h3 class="group-title">Available Bag Size</h3>
+                        <div class="options-grid" id="size-options">
+                            <button class="option-button" onclick="selectOption(this, 'size')">1kg</button>
+                            <button class="option-button" onclick="selectOption(this, 'size')">5kg</button>
+                            <button class="option-button" onclick="selectOption(this, 'size')">10kg</button>
+                            <button class="option-button" onclick="selectOption(this, 'size')">25kg</button>
+                            <button class="option-button" onclick="selectOption(this, 'size')">50kg</button>
+                        </div>
+                    </div>
+
+                    <div class="selection-group">
+                        <h3 class="group-title">Available Bag Type</h3>
+                        <div class="options-grid" id="type-options">
+                            <button class="option-button" onclick="selectOption(this, 'type')">PP</button>
+                            <button class="option-button" onclick="selectOption(this, 'type')">Plastic</button>
+                            <button class="option-button" onclick="selectOption(this, 'type')">Jute</button>
+                            <button class="option-button" onclick="selectOption(this, 'type')">Gunny</button>
+                            <button class="option-button" onclick="selectOption(this, 'type')">Non-Woven</button>
+                        </div>
+                    </div>
+
+                    <!-- ================= NEW RICE TYPE SECTION ================= -->
+                    <div class="selection-group" id="rice-type-group" style="display: none;">
+                        <h3 class="group-title">Rice Type</h3>
+                        <div class="options-grid" id="rice-type-options">
+                            <button class="option-button" onclick="selectOption(this, 'riceType')">Basmati</button>
+                            <button class="option-button" onclick="selectOption(this, 'riceType')">Non-Basmati</button>
+                        </div>
+                    </div>
+                    <!-- ================= END NEW RICE TYPE SECTION ================= -->
+                </div>
+
+                <div class="action-container">
+                    <button class="next-btn" onclick="handleNext()">Next</button>
+                </div>
+
+                <div class="product-description">
+                    <p id="detail-product-desc"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BOOKING DETAILS VIEW ================= -->
+        <div id="booking-view" class="view">
+
+            <!-- MOBILE navbar (hidden on PC) -->
+            <div class="booking-navbar booking-mobile-navbar">
+                <button class="nav-close-btn" onclick="goBackToDetails()"><i class="fa-solid fa-xmark"></i></button>
+                <span class="nav-title">booking-details</span>
+                <i class="fa-solid fa-ellipsis nav-more-icon"></i>
+            </div>
+
+            <!-- PC TOP BAR (hidden on mobile) -->
+            <div class="bk-pc-topbar">
+                <button class="bk-back-btn" onclick="goBackToDetails()">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <div class="bk-pc-title-block">
+                    <div class="bk-wheat-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h2 class="bk-pc-title">Booking Details</h2>
+                    <p class="bk-pc-subtitle">Please provide your contact information to confirm your order</p>
+                </div>
+                <div class="bk-secure-badge">
+                    <i class="fa-solid fa-shield-halved"></i> Your data is secure
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT (mobile keeps original flow, PC goes 2-col) -->
+            <div class="booking-content-container">
+
+                <!-- LEFT: Summary Card -->
+                <div class="summary-card">
+                    <!-- PC: product image inside summary card -->
+                    <div class="bk-summary-header">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>Your Order Summary</span>
+                    </div>
+                    <div class="bk-product-img-wrap">
+                        <img id="bk-product-img" src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Product" class="bk-product-img">
+                    </div>
+
+                    <!-- Summary rows with icons -->
+                    <div class="bk-summary-rows">
+                        <div class="bk-summary-row">
+                            <div class="bk-row-icon"><i class="fa-solid fa-seedling"></i></div>
+                            <div class="bk-row-text">
+                                <span class="bk-row-label">Product</span>
+                                <span class="bk-row-value" id="summary-product">—</span>
+                            </div>
+                        </div>
+
+                        <div class="bk-summary-row" id="summary-rice-type-container" style="display:none;">
+                            <div class="bk-row-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+                            <div class="bk-row-text">
+                                <span class="bk-row-label">Rice Type</span>
+                                <span class="bk-row-value" id="summary-rice-type">—</span>
+                            </div>
+                        </div>
+
+                        <div class="bk-summary-row">
+                            <div class="bk-row-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+                            <div class="bk-row-text">
+                                <span class="bk-row-label">Weight</span>
+                                <span class="bk-row-value"><span id="summary-weight">—</span> <span class="bk-selected-tag">(Selected)</span></span>
+                            </div>
+                        </div>
+
+                        <div class="bk-summary-row">
+                            <div class="bk-row-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <div class="bk-row-text">
+                                <span class="bk-row-label">Bag Type</span>
+                                <span class="bk-row-value"><span id="summary-type">—</span> <span class="bk-selected-tag">Bag (Selected)</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thank you note -->
+                    <div class="bk-thankyou-note">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span id="bk-thankyou-text">Thank you for choosing quality products from us!</span>
+                    </div>
+
+                    <!-- MOBILE ONLY: simple text summary (hidden on PC) -->
+                    <div class="mobile-summary-items">
+                        <div class="summary-item"><strong>Product: </strong><span id="mob-summary-product"></span></div>
+                        <div class="summary-item" id="mob-summary-rice-type-container" style="display:none;">
+                            <strong>Rice Type: </strong><span id="mob-summary-rice-type"></span>
+                        </div>
+                        <div class="summary-item"><strong>Weight: </strong><span id="mob-summary-weight"></span> (Selected)</div>
+                        <div class="summary-item"><strong>Bag Type: </strong><span id="mob-summary-type"></span> Bag (Selected)</div>
+                    </div>
+                </div>
+
+                <!-- MOBILE ONLY: Contact form shown directly (hidden on PC) -->
+                <div class="mobile-contact-section">
+                    <h3 class="contact-header">Contact Information</h3>
+                    <form id="booking-form-mobile" action="https://api.web3forms.com/submit" method="POST" class="booking-form">
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="chosen_product" id="mob-hidden-product">
+                        <input type="hidden" name="chosen_size" id="mob-hidden-size">
+                        <input type="hidden" name="chosen_type" id="mob-hidden-type">
+                        <input type="hidden" name="chosen_rice_type" id="mob-hidden-rice-type">
+                        <div class="form-group">
+                            <label class="form-label">Full name</label>
+                            <input type="text" name="full_name" class="booking-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Which country are you located in?</label>
+                            <div class="country-select-wrapper">
+                                <input type="text" id="country-input-mob" name="country" class="booking-input" placeholder="Select or type country..." required>
+                                <div class="dropdown-trigger" onclick="openCountryModal(event)">
+                                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone number</label>
+                            <div class="phone-input-wrapper">
+                                <select id="phone-code-mob" name="phone_code" class="phone-code-select"></select>
+                                <input type="tel" id="phone-number-mob" name="phone_number" class="booking-input phone-number-input" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email <span class="optional-tag">(optional)</span></label>
+                            <input type="email" name="email" class="booking-input" placeholder="you@email.com">
+                        </div>
+                        <button type="submit" class="submit-booking-btn">Submit</button>
+                    </form>
+                </div>
+
+                <!-- PC RIGHT: Contact Form -->
+                <div class="bk-form-side">
+                    <div class="bk-contact-header">
+                        <div class="bk-contact-icon"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h3 class="bk-contact-title">Contact Information</h3>
+                            <div class="bk-contact-underline"></div>
+                        </div>
+                    </div>
+
+                    <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="booking-form">
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="chosen_product" id="hidden-product">
+                        <input type="hidden" name="chosen_size" id="hidden-size">
+                        <input type="hidden" name="chosen_type" id="hidden-type">
+                        <input type="hidden" name="chosen_rice_type" id="hidden-rice-type">
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fa-regular fa-user bk-label-icon"></i> Full Name
+                            </label>
+                            <input type="text" name="full_name" class="booking-input" placeholder="Your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fa-solid fa-earth-asia bk-label-icon"></i> Which country are you located in?
+                            </label>
+                            <div class="country-select-wrapper">
+                                <input type="text" id="country-input" name="country" class="booking-input" placeholder="Select or type country..." required>
+                                <div class="dropdown-trigger" onclick="openCountryModal(event)">
+                                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fa-solid fa-phone bk-label-icon"></i> Phone Number
+                            </label>
+                            <div class="phone-input-wrapper">
+                                <select id="phone-code" name="phone_code" class="phone-code-select"></select>
+                                <input type="tel" id="phone-number" name="phone_number" class="booking-input phone-number-input" placeholder="Phone number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fa-regular fa-envelope bk-label-icon"></i> Email <span class="optional-tag">(Optional)</span>
+                            </label>
+                            <input type="email" name="email" class="booking-input" placeholder="you@email.com">
+                        </div>
+
+                        <button type="submit" class="submit-booking-btn">
+                            Submit <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- PC Bottom wave decoration -->
+            <div class="bk-pc-footer-wave"></div>
+        </div>
+
+        <!-- ================= COUNTRY MODAL ================= -->
+        <div class="modal-overlay" id="modal-overlay" onclick="closeCountryModal()"></div>
+        <div class="country-modal" id="country-modal">
+            <div class="country-modal-header">
+                <span class="country-modal-title">Select Your Country</span>
+                <button class="country-modal-close" onclick="closeCountryModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="country-search-box">
+                <input type="text" id="country-search" class="country-search-input" placeholder="Search / Type country name..." oninput="filterCountries()">
+            </div>
+            <div class="country-list" id="country-list">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS Link -->
+    <script src="script.js"></script>
+</body>
+</html>
