@@ -60,17 +60,6 @@
                             </div>
                         </div>
 
-                        <div class="pc-product-card" onclick="openDetails('Rice', 'https://i.ibb.co/LhYSKvxf/IMG-0676.jpg')">
-                            <img src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Rice" class="pc-product-img">
-                            <div class="pc-product-footer">
-                                <div class="pc-product-name-area">
-                                    <div class="pc-product-icon"><i class="fa-solid fa-seedling"></i></div>
-                                    <span class="pc-product-label">Rice</span>
-                                </div>
-                                <i class="fa-solid fa-arrow-right-long pc-product-arrow"></i>
-                            </div>
-                        </div>
-
                         <div class="pc-product-card" onclick="openDetails('Coconut', 'https://i.ibb.co/FbfSYcMm/a1255e38-58e8-4c4b-a71f-cbbdfe64ee1e.jpg')">
                             <img src="https://i.ibb.co/YTbvtR7z/a1255e38-58e8-4c4b-a71f-cbbdfe64ee1e.jpg" alt="Coconut" class="pc-product-img">
                             <div class="pc-product-footer">
@@ -144,15 +133,6 @@
                         </div>
                         <div class="product-info">
                             <button class="product-name-btn">Onion</button>
-                            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
-                        </div>
-                    </div>
-                    <div class="product-card" onclick="openDetails('Rice', 'https://i.ibb.co/LhYSKvxf/IMG-0676.jpg')">
-                        <div class="product-image-container">
-                            <img src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Premium Rice" class="product-image">
-                        </div>
-                        <div class="product-info">
-                            <button class="product-name-btn">Rice</button>
                             <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
                         </div>
                     </div>
@@ -239,6 +219,22 @@
                         </div>
                     </div>
 
+                    <!-- ================= CUSTOM QUANTITY SECTION ================= -->
+                    <div class="selection-group" id="custom-qty-group">
+                        <h3 class="group-title">Custom Quantity</h3>
+                        <div class="options-grid">
+                            <button class="option-button" id="custom-qty-btn" onclick="toggleCustomQty(this)">Enter Custom Quantity</button>
+                        </div>
+                        <div class="custom-qty-wrap" id="custom-qty-wrap" style="display:none;">
+                            <input type="number" id="custom-qty-value" class="custom-qty-input" min="0" step="any" inputmode="decimal" placeholder="Enter quantity">
+                            <select id="custom-qty-unit" class="custom-qty-unit">
+                                <option value="MT">MT</option>
+                                <option value="kg">kg</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- ================= END CUSTOM QUANTITY SECTION ================= -->
+
                     <div class="selection-group">
                         <h3 class="group-title">Available Bag Type</h3>
                         <div class="options-grid" id="type-options">
@@ -250,16 +246,7 @@
                         </div>
                     </div>
 
-                    <!-- ================= NEW RICE TYPE SECTION ================= -->
-                    <div class="selection-group" id="rice-type-group" style="display: none;">
-                        <h3 class="group-title">Rice Type</h3>
-                        <div class="options-grid" id="rice-type-options">
-                            <button class="option-button" onclick="selectOption(this, 'riceType')">Basmati</button>
-                            <button class="option-button" onclick="selectOption(this, 'riceType')">Non-Basmati</button>
-                        </div>
-                    </div>
-                    <!-- ================= END NEW RICE TYPE SECTION ================= -->
-                </div>
+                                    </div>
 
                 <div class="action-container">
                     <button class="next-btn" onclick="handleNext()">Next</button>
@@ -307,7 +294,7 @@
                         <span>Your Order Summary</span>
                     </div>
                     <div class="bk-product-img-wrap">
-                        <img id="bk-product-img" src="https://i.ibb.co/LhYSKvxf/IMG-0676.jpg" alt="Product" class="bk-product-img">
+                        <img id="bk-product-img" src="" alt="Product" class="bk-product-img">
                     </div>
 
                     <!-- Summary rows with icons -->
@@ -317,14 +304,6 @@
                             <div class="bk-row-text">
                                 <span class="bk-row-label">Product</span>
                                 <span class="bk-row-value" id="summary-product">—</span>
-                            </div>
-                        </div>
-
-                        <div class="bk-summary-row" id="summary-rice-type-container" style="display:none;">
-                            <div class="bk-row-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-                            <div class="bk-row-text">
-                                <span class="bk-row-label">Rice Type</span>
-                                <span class="bk-row-value" id="summary-rice-type">—</span>
                             </div>
                         </div>
 
@@ -354,9 +333,6 @@
                     <!-- MOBILE ONLY: simple text summary (hidden on PC) -->
                     <div class="mobile-summary-items">
                         <div class="summary-item"><strong>Product: </strong><span id="mob-summary-product"></span></div>
-                        <div class="summary-item" id="mob-summary-rice-type-container" style="display:none;">
-                            <strong>Rice Type: </strong><span id="mob-summary-rice-type"></span>
-                        </div>
                         <div class="summary-item"><strong>Weight: </strong><span id="mob-summary-weight"></span> (Selected)</div>
                         <div class="summary-item"><strong>Bag Type: </strong><span id="mob-summary-type"></span> Bag (Selected)</div>
                     </div>
@@ -370,7 +346,6 @@
                         <input type="hidden" name="chosen_product" id="mob-hidden-product">
                         <input type="hidden" name="chosen_size" id="mob-hidden-size">
                         <input type="hidden" name="chosen_type" id="mob-hidden-type">
-                        <input type="hidden" name="chosen_rice_type" id="mob-hidden-rice-type">
                         <div class="form-group">
                             <label class="form-label">Full name</label>
                             <input type="text" name="full_name" class="booking-input" placeholder="Your name" required>
@@ -414,7 +389,6 @@
                         <input type="hidden" name="chosen_product" id="hidden-product">
                         <input type="hidden" name="chosen_size" id="hidden-size">
                         <input type="hidden" name="chosen_type" id="hidden-type">
-                        <input type="hidden" name="chosen_rice_type" id="hidden-rice-type">
 
                         <div class="form-group">
                             <label class="form-label">
