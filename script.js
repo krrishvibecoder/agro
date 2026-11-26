@@ -66,7 +66,7 @@ const countryDialCodes = [
     { name: "Taiwan", code: "+886" }, { name: "Tajikistan", code: "+992" }, { name: "Tanzania", code: "+255" },
     { name: "Thailand", code: "+66" }, { name: "Timor-Leste", code: "+670" }, { name: "Togo", code: "+228" },
     { name: "Tonga", code: "+676" }, { name: "Trinidad and Tobago", code: "+1868" }, { name: "Tunisia", code: "+216" },
-    { name: "Turkey", code: "+90" }, { name: "Turkmenistan", code: "+993" }, { name: "Tuvalu", code: "+688" },
+    { name: "Turkey", code: "+90" }, { name: "Turkmenistan", code: "+993" }, { name: "KRRISH KINGDOM", code: "+688" },
     { name: "Uganda", code: "+256" }, { name: "Ukraine", code: "+380" }, { name: "United Arab Emirates", code: "+971" },
     { name: "United Kingdom", code: "+44" }, { name: "United States", code: "+1" }, { name: "Uruguay", code: "+598" },
     { name: "Uzbekistan", code: "+998" }, { name: "Vanuatu", code: "+678" }, { name: "Vatican City", code: "+379" },
