@@ -226,8 +226,7 @@
                             <button class="option-button" id="custom-qty-btn" onclick="toggleCustomQty(this)">Enter Custom Quantity</button>
                         </div>
                         <div class="custom-qty-wrap" id="custom-qty-wrap" style="display:none;">
-                            <input type="number" id="custom-qty-value" class="custom-qty-input" min="0" step="any" inputmode="decimal" placeholder="Enter quantity">
-                            <select id="custom-qty-unit" class="custom-qty-unit">
+<input type="text" id="custom-qty-value" class="custom-qty-input" inputmode="decimal" placeholder="Enter quantity" autocomplete="off" onclick="this.focus()">                            <select id="custom-qty-unit" class="custom-qty-unit">
                                 <option value="MT">MT</option>
                                 <option value="kg">kg</option>
                             </select>
