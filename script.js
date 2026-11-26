@@ -2,6 +2,8 @@
 let selectedProduct = "";
 let selectedSize = "";
 let selectedType = "";
+let selectedImage = "";
+let isCustomQty = false; // true when buyer chose a custom quantity instead of a preset bag size
 
 // Country dial codes (Master list — ~200 countries with ISD codes)
 const countryDialCodes = [
@@ -108,14 +110,6 @@ Onion is rich in natural sugars, Vitamins A, B6, C and E, along with Sodium, Pot
 
 We bring you the most convenient route to bulk procurement of Onions, directly from the fertile fields of India — with just one click.`,
 
-    "Rice": `Rice is the staple food for more than half the world's population and one of the largest traded agricultural commodities globally. India is the world's leading Rice exporter, supplying both Basmati and Non-Basmati varieties to markets across the Middle East, Africa, Europe and Southeast Asia.
-
-Scientifically known as Oryza Sativa, Rice is cultivated across diverse Indian states including Punjab, Haryana, West Bengal, Uttar Pradesh and Andhra Pradesh. Major varieties available for export include Basmati (1121, Pusa, Traditional), Sona Masoori, IR-64, Swarna and Parboiled Rice.
-
-Rice is a rich source of Carbohydrates, essential for energy, along with trace amounts of Protein, Fiber and B-Vitamins depending on the variety and processing method. India's Rice exports have consistently crossed millions of tons annually, with UAE, Saudi Arabia, Iran, Nepal and African nations among the top import destinations.
-
-We source premium Rice directly from India's finest grain belts, ensuring consistent quality, proper grading and reliable bulk supply for global buyers.`,
-
     "Coconut": `Coconut is one of the most versatile agricultural products, used across food, cosmetic, and industrial applications worldwide. India ranks among the top three Coconut producing countries globally, alongside Indonesia and the Philippines, with Kerala, Tamil Nadu, Karnataka and Andhra Pradesh as major producing states.
 
 Scientifically known as Cocos Nucifera, Coconut belongs to the family Arecaceae. It is cultivated year-round in India's coastal and tropical regions, with common export forms including Desiccated Coconut, Coconut Copra, Coconut Oil and whole Semi-Husked Coconuts.
@@ -128,8 +122,10 @@ We supply high-quality Coconut sourced directly from India's coastal plantations
 // Open Detail View
 function openDetails(productName, imageUrl) {
     selectedProduct = productName;
+    selectedImage = imageUrl;
     selectedSize = ""; // Reset selections
     selectedType = "";
+    resetCustomQty();
 
     document.getElementById('detail-product-name').innerText = productName;
     document.getElementById('detail-product-img').src = imageUrl;
@@ -146,6 +142,34 @@ function goBack() {
     switchView('home-view');
 }
 
+// ==========================================
+// CUSTOM QUANTITY LOGIC
+// ==========================================
+
+// Hide and clear the custom quantity input
+function resetCustomQty() {
+    isCustomQty = false;
+    const btn = document.getElementById('custom-qty-btn');
+    const wrap = document.getElementById('custom-qty-wrap');
+    const input = document.getElementById('custom-qty-value');
+    const unit = document.getElementById('custom-qty-unit');
+    if (btn) btn.classList.remove('active');
+    if (wrap) wrap.style.display = 'none';
+    if (input) input.value = '';
+    if (unit) unit.value = 'MT';
+}
+
+// Custom Quantity replaces the preset bag size
+function toggleCustomQty(btn) {
+    document.querySelectorAll('#size-options .option-button').forEach(b => b.classList.remove('active'));
+    selectedSize = "";
+
+    isCustomQty = true;
+    btn.classList.add('active');
+    document.getElementById('custom-qty-wrap').style.display = 'flex';
+    document.getElementById('custom-qty-value').focus();
+}
+
 // Select Bag Size or Bag Type
 function selectOption(btn, category) {
     let parent = btn.parentElement;
@@ -153,6 +177,7 @@ function selectOption(btn, category) {
     btn.classList.add('active');
 
     if (category === 'size') {
+        resetCustomQty(); // picking a preset size cancels custom quantity
         selectedSize = btn.innerText;
     } else if (category === 'type') {
         selectedType = btn.innerText;
@@ -161,6 +186,16 @@ function selectOption(btn, category) {
 
 // Handle Next Button (Go to Booking View)
 function handleNext() {
+    if (isCustomQty) {
+        const qty = parseFloat(document.getElementById('custom-qty-value').value);
+        if (!qty || qty <= 0) {
+            alert("Please enter a valid custom quantity.");
+            return;
+        }
+        const unit = document.getElementById('custom-qty-unit').value;
+        selectedSize = `${document.getElementById('custom-qty-value').value.trim()} ${unit} (Custom)`;
+    }
+
     if (!selectedSize || !selectedType) {
         alert("Please select both Bag Size and Bag Type.");
         return;
@@ -168,6 +203,7 @@ function handleNext() {
 
     // Populate Booking Summary
     document.getElementById('summary-product').innerText = selectedProduct;
+    document.getElementById('bk-product-img').src = selectedImage;
     document.getElementById('summary-weight').innerText = selectedSize;
     document.getElementById('summary-type').innerText = selectedType;
 
